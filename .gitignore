@@ -1,4 +1,14 @@
 .vs/
 Library/
 Temp/
-obj/
+Obj/
+Logs/
+Build/
+Builds/
+
+*.csproj
+*.sln
+*.user
+*.pidb
+*.booproj
+*.svd
