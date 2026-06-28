@@ -9,6 +9,12 @@ public class Player : MonoBehaviour
     [SerializeField] Light flashlight;
     private CharacterController controller;
 
+    [SerializeField] AudioSource audiSource;
+    [SerializeField] AudioClip footStepSound;
+
+    float timeBetweenSteps = 0.6f;
+    float stepTimer;
+
     List<string> keys = new List<string>();
 
     public bool isFlashlightOn;
@@ -27,6 +33,7 @@ public class Player : MonoBehaviour
     {
         PlayerMove();
         IsFlashOn();
+        FootStepSound();
        
     }        
         
@@ -67,5 +74,30 @@ public class Player : MonoBehaviour
     public bool HasKey(string requiredKeyID)
     {
         return keys.Contains(requiredKeyID);
+    }
+
+    void FootStepSound()
+    {
+        bool isMoving = false;
+        
+        if (controller != null)
+        {
+            isMoving = controller.isGrounded && controller.velocity.magnitude > 0.1f;
+        }
+
+       if (isMoving)
+        {
+            stepTimer -= Time.deltaTime;
+
+            if (stepTimer <= 0)
+            {
+                audiSource.PlayOneShot(footStepSound);
+                stepTimer = timeBetweenSteps;
+            }
+        }
+        else
+        {
+            stepTimer = 0.2f;
+        }
     }
 }

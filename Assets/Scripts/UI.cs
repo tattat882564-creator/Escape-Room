@@ -4,18 +4,17 @@ using UnityEngine;
 
 public class UI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI interactText;
+    [SerializeField] private GameObject interactCrosshair;
     [SerializeField] private TextMeshProUGUI talkingText;
 
-    public void ShowInterText(string text)
+    public void ShowInterCrosshair()
     {
-        interactText.text = text;
-        interactText.gameObject.SetActive(true);
+        interactCrosshair.SetActive(true);
     }
 
     public void HideInterText()
     {
-        interactText.gameObject.SetActive(false);
+        interactCrosshair.SetActive(false);
     }
 
     public void ShowTalkText(string text) 

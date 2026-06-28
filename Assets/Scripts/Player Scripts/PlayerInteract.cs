@@ -35,14 +35,14 @@ public class PlayerInteract : MonoBehaviour
             if (hit.collider.TryGetComponent(out DoorHandle handle))
             {
                 currentHandle = handle;
-                ui.ShowInterText("[E] Open Door");
+                ui.ShowInterCrosshair();
                 return;
             }
 
             if (hit.collider.TryGetComponent(out Key key))
             {
                 currentKey = key;
-                ui.ShowInterText("[E] Pickup");
+                ui.ShowInterCrosshair();
                 return;
             }
         }
