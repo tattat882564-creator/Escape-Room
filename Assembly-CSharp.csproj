@@ -58,6 +58,7 @@
     <Compile Include="Assets\Scripts\MainMenu.cs" />
     <Compile Include="Assets\Scripts\DoorHandle.cs" />
     <Compile Include="Assets\Scripts\Key.cs" />
+    <Compile Include="Assets\Scripts\TriggerEvent.cs" />
     <Compile Include="Assets\Scripts\Door.cs" />
     <Compile Include="Assets\Scripts\UI.cs" />
   </ItemGroup>
