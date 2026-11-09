@@ -97,7 +97,7 @@ public class Player : MonoBehaviour
         }
         else
         {
-            stepTimer = 0.2f;
+            stepTimer = 0.4f;
         }
     }
 }

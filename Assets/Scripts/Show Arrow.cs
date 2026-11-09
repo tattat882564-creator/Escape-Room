@@ -15,8 +15,11 @@ public class ShowArrow : MonoBehaviour
     {
         if (other.CompareTag("Player"))
         {
-            showArrow.enabled = true;
-            showText.enabled = true;
+            if (showArrow != null && showText != null)
+            {
+                showArrow.enabled = true;
+                showText.enabled = true;
+            }
         }
     }
 }

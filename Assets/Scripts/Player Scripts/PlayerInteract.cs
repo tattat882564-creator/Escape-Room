@@ -4,11 +4,21 @@ public class PlayerInteract : MonoBehaviour
 {
     [SerializeField] Player player;
     [SerializeField] UI ui;
+    [SerializeField] CreepyGhostGirl ghostScript;
     [SerializeField] float interactDistance = 2f;
+    [SerializeField] GameObject ghostShadowTrigger;
     
     
     DoorHandle currentHandle;
     Key currentKey;
+
+    private void Start()
+    {
+        if (ghostShadowTrigger != null)
+        {
+            ghostShadowTrigger.SetActive(false);
+        }
+    }
 
     void Update()
     {
@@ -45,6 +55,22 @@ public class PlayerInteract : MonoBehaviour
                 ui.ShowInterCrosshair();
                 return;
             }
+            //if (hit.collider.TryGetComponent(out TriggerEvent trigger))
+            //{
+            //    if (ghostScript != null)
+            //    {
+            //        ghostScript.RoomBShadow();
+            //        return;
+            //    }
+            //    else
+            //    {
+            //        if (ghostShadowTrigger != null)
+            //        {
+            //            ghostShadowTrigger.SetActive(false);
+            //        }
+            //    }
+            //    return;
+            //}
         }
     }
 
@@ -65,6 +91,10 @@ public class PlayerInteract : MonoBehaviour
         if (currentKey != null)
         {
             currentKey.Interact(player);
-        }
+            if (ghostShadowTrigger != null)
+            {
+                ghostShadowTrigger.SetActive(true);
+            }
+    }
     }
 }

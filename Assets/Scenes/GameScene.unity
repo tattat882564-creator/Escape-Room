@@ -309,7 +309,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aeadcf0718f844e98a5fe39794a684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  isOpen: 0
+  isOpen: 1
   isUnlocked: 0
   requiredKeyID: key B
   rotationSpeed: 6
@@ -946,15 +946,15 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
       propertyPath: m_LocalPosition.x
-      value: -5.476139
+      value: -5.69
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
       propertyPath: m_LocalPosition.y
-      value: 1.1999998
+      value: 1.2
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
       propertyPath: m_LocalPosition.z
-      value: 1.7511624
+      value: 6.66
       objectReference: {fileID: 0}
     - target: {fileID: -8679921383154817045, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
       propertyPath: m_LocalRotation.w
@@ -994,12 +994,22 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 09c903ea21ce2104d9d295f46f349eb6, type: 2}
     - target: {fileID: 919132149155446097, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
       propertyPath: m_Name
-      value: creepy+ghost+girl+3d+model
+      value: creepy+ghostGirl
+      objectReference: {fileID: 0}
+    - target: {fileID: 919132149155446097, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
+      propertyPath: m_IsActive
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771600291}
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1771600292}
   m_SourcePrefab: {fileID: 100100000, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
 --- !u!1 &410087039
 GameObject:
@@ -1450,7 +1460,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aeadcf0718f844e98a5fe39794a684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  isOpen: 0
+  isOpen: 1
   isUnlocked: 0
   requiredKeyID: key C
   rotationSpeed: 6
@@ -3193,6 +3203,8 @@ MonoBehaviour:
   objectToActive:
   - {fileID: 1995687520}
   - {fileID: 911746451}
+  ghostGirl: {fileID: 0}
+  second: []
   audioToPlay: {fileID: 0}
 --- !u!1 &1214791929
 GameObject:
@@ -4188,7 +4200,7 @@ Transform:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1732895512}
   serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalRotation: {x: -0, y: -0, z: -0, w: 1}
   m_LocalPosition: {x: 0.7000003, y: -0.8000001, z: -16.323}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
@@ -4208,9 +4220,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 46a9cc8afb05e1c4088c703d74996ab3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Triggers
-  objectToActive:
-  - {fileID: 1995687520}
-  - {fileID: 911746451}
+  objectToActive: []
+  ghostGirl: {fileID: 1771600291}
+  second:
+  - 10
   audioToPlay: {fileID: 2002104105}
 --- !u!114 &1732895515
 MonoBehaviour:
@@ -4247,6 +4260,46 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 4.97, y: 1, z: 1}
   m_Center: {x: 0, y: 0, z: 0}
+--- !u!1 &1771600287 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: 6c221d8c65a0ba84fa8f38a580cebd62, type: 3}
+  m_PrefabInstance: {fileID: 385397392}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1771600291
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771600287}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c44a8b51452c15243904ecfd267f3b5e, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CreepyGhostGirl
+  animator: {fileID: 1771600292}
+--- !u!95 &1771600292
+Animator:
+  serializedVersion: 7
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1771600287}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 1666e185f7b4f274aaada5875f0c04ea, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_StabilizeFeet: 0
+  m_AnimatePhysics: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorStateOnDisable: 0
+  m_WriteDefaultValuesOnDisable: 0
 --- !u!1 &1821086513 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 2766212503428324877, guid: 71bc3394760c7dd41a61e13731ac860c, type: 3}
@@ -5639,7 +5692,7 @@ Transform:
   m_GameObject: {fileID: 1995687520}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: -0, z: -1, w: 0}
-  m_LocalPosition: {x: 0, y: -1, z: 0}
+  m_LocalPosition: {x: 0, y: 0.05, z: 0}
   m_LocalScale: {x: 1.804049, y: 1.804049, z: 1.804049}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -5982,7 +6035,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d4aeadcf0718f844e98a5fe39794a684, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Door
-  isOpen: 0
+  isOpen: 1
   isUnlocked: 0
   requiredKeyID: key A
   rotationSpeed: 6

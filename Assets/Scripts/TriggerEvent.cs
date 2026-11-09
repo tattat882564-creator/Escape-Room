@@ -4,10 +4,22 @@ using UnityEngine;
 public class TriggerEvent : MonoBehaviour
 {
     [SerializeField] GameObject[] objectToActive;
+    [SerializeField] CreepyGhostGirl ghostGirl;
     [SerializeField] float[] second;
     [SerializeField] AudioSource audioToPlay;
 
     bool hasTrigged = false;
+
+    private void Start()
+    {
+        if (objectToActive != null)
+        {
+            foreach (GameObject obj in objectToActive) 
+            { 
+                obj.SetActive(false); 
+            }
+        }
+    }
     private void OnTriggerEnter(Collider other)
     {
 
@@ -21,10 +33,13 @@ public class TriggerEvent : MonoBehaviour
                     if (obj != null)
                     {
                         obj.SetActive(true);
-                        Destroy(objectToActive[0], second[0]);
                     }
                 }
             }
+            if (ghostGirl != null)
+            {
+                ghostGirl.RoomBShadow();
+            }                       
 
             if (audioToPlay != null)
             {
